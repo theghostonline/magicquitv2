@@ -24,6 +24,7 @@ The popover still lets you temporarily disable quitting for currently running ap
 This fork includes its own cask. Use the fully qualified cask name so Homebrew installs this fork instead of the upstream `magicquit` cask:
 
 ```sh
+brew uninstall --cask magicquit
 brew tap theghostonline/magicquitv2 https://github.com/theghostonline/magicquitv2
 brew trust theghostonline/magicquitv2
 brew install --cask --no-quarantine theghostonline/magicquitv2/magicquit
