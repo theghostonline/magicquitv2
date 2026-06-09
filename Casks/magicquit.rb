@@ -11,8 +11,6 @@ cask "magicquit" do
   auto_updates false
   depends_on macos: :ventura
 
-  no_quarantine true
-
   app "MagicQuit.app"
 
   zap trash: "~/Library/Preferences/com.MagicQuit.plist"
