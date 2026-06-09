@@ -12,5 +12,11 @@ cask "magicquit" do
 
   app "MagicQuit.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/MagicQuit.app"],
+                   sudo: false
+  end
+
   zap trash: "~/Library/Preferences/com.MagicQuit.plist"
 end
