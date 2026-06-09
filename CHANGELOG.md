@@ -1,6 +1,7 @@
 ## Fork changes - 2026-06-08
 
 ### Added
+- Added a Homebrew cask for installing this fork from the `theghostonline/magicquit` tap.
 - Added a persistent Exclusions section to the menu bar popover.
 - Added `+` and `-` controls for choosing apps that MagicQuit should always leave open.
 - Added persistent exclusion storage by bundle identifier.

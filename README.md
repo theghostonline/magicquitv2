@@ -19,6 +19,15 @@ MagicQuit tracks regular running apps and resets an app's idle timer when that a
 
 The popover still lets you temporarily disable quitting for currently running apps with the per-app checkbox. The new Exclusions section is for permanent "never quit this app" choices.
 
+## Install with Homebrew
+
+This fork includes its own cask. Use the fully qualified cask name so Homebrew installs this fork instead of the upstream `magicquit` cask:
+
+```sh
+brew tap theghostonline/magicquit https://github.com/theghostonline/magicquit
+brew install --cask theghostonline/magicquit/magicquit
+```
+
 ## Build
 
 Requirements:
