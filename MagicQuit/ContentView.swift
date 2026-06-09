@@ -621,6 +621,39 @@ struct SettingsView: View {
         }
         return ""
     }
+
+    private var idleHours: Int {
+        minutesUntilClose / 60
+    }
+
+    private var idleMinutes: Int {
+        minutesUntilClose % 60
+    }
+
+    private var idleHoursBinding: Binding<Int> {
+        Binding<Int>(
+            get: { idleHours },
+            set: { newHours in
+                updateIdleTime(hours: newHours, minutes: idleMinutes)
+            }
+        )
+    }
+
+    private var idleMinutesBinding: Binding<Int> {
+        Binding<Int>(
+            get: { idleMinutes },
+            set: { newMinutes in
+                updateIdleTime(hours: idleHours, minutes: newMinutes)
+            }
+        )
+    }
+
+    private func updateIdleTime(hours: Int, minutes: Int) {
+        let clampedHours = min(max(hours, 0), Preferences.maximumMinutesUntilClose / 60)
+        let clampedMinutes = min(max(minutes, 0), 59)
+        let totalMinutes = (clampedHours * 60) + clampedMinutes
+        minutesUntilClose = min(max(totalMinutes, 1), Preferences.maximumMinutesUntilClose)
+    }
     
     var body: some View {
         VStack {
@@ -648,8 +681,13 @@ struct SettingsView: View {
                     Text("Idle time:")
                         .frame(width: 100, alignment: .trailing)
                         .padding(.trailing, 20)
-                    Stepper(value: $minutesUntilClose, in: 1...Preferences.maximumMinutesUntilClose, step: 1) {
-                        Text(Preferences.formattedIdleTime(minutes: minutesUntilClose))
+                    Stepper(value: idleHoursBinding, in: 0...(Preferences.maximumMinutesUntilClose / 60), step: 1) {
+                        Text("\(idleHours)h")
+                            .frame(width: 40, alignment: .trailing)
+                    }
+                    Stepper(value: idleMinutesBinding, in: 0...59, step: 1) {
+                        Text("\(idleMinutes)m")
+                            .frame(width: 40, alignment: .trailing)
                     }
                     Text("until quitting")
                         .padding(.trailing, 0)

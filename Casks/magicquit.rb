@@ -1,6 +1,6 @@
 cask "magicquit" do
-  version "1.4.1"
-  sha256 "acd091dcde3100a732d6fca8f1825a9baf771bace753c02a5e4c5e3899cec29a"
+  version "1.4.2"
+  sha256 "a196ba698aedee3d7a3040552d85dca1bdebb50e1167d197a5bdf95e28ac4e76"
 
   url "https://github.com/theghostonline/magicquitv2/releases/download/v#{version}/MagicQuit-#{version}.zip"
   name "MagicQuit"

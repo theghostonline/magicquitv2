@@ -1,3 +1,8 @@
+## Fork changes - 2026-06-09
+
+### Changed
+- Settings now has separate hour and minute controls for idle time.
+
 ## Fork changes - 2026-06-08
 
 ### Added
