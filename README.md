@@ -25,6 +25,7 @@ This fork includes its own cask. Use the fully qualified cask name so Homebrew i
 
 ```sh
 brew tap theghostonline/magicquitv2 https://github.com/theghostonline/magicquitv2
+brew trust theghostonline/magicquitv2
 brew install --cask --no-quarantine theghostonline/magicquitv2/magicquit
 ```
 
